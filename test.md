@@ -1,11 +1,17 @@
-+ IPv4 contains 32 bits per address.
-+ it splits decimal : 
+IPv4 contains 32 bits per address.
+
+it splits decimal : 
 + Ex ) 221.67.143.47 ====> 11011101 // 01000011 // 10001111 // 00101111  
-- IPs uses for communication between two or more nodes in a local network (LAN/MAN/CAN) or world wide network (WAN)
-`IP = NetID + HostID` (both are explained below)
-- Subnet mask = contains 32 bits per each  |  it splits networks whenever is needed | in SP envoirments is also used for IP renting to clinets/partners 
+
+
+IPs uses for communication between two or more nodes in a local network (LAN/MAN/CAN) or world wide network (WAN)
+- `IP = NetID + HostID` (both are explained below)
+
+
+Subnet mask = contains 32 bits per each  |  it splits networks whenever is needed | in SP envoirments is also used for IP renting to clinets/partners 
 - Ex ) 221.67.143.47/24  ===> after forward-slash, two or may one number is occupied, it's called subnet mask (Prefix also, mostly for IPv6) ==> 221.67.143.47 / 255.255.255.0
-- In subnets {8,16,24,32} whenever decimal subnet mask shows "255" it's NetID, and whenever shows "0", it's HostID (255 remains as a reminder BTW.)
+
+In subnets {8,16,24,32} whenever decimal subnet mask shows "255" it's NetID, and whenever shows "0", it's HostID (255 remains as a reminder BTW.)
 
 - NetworkID(NetID) === > each subnet splits some ip addresses into some groups, very first ip of each group will be called NetID and is reserved, IT'S NOT SETABLE, and will be used for broadcasting 
 
@@ -40,13 +46,14 @@ Tutorial :
 ===> Final Ansewr : 192.168.10.0/28 --- now it has 10 seperate networks.
 
 
-|(N)Network         |     (H)Hosts             |      (B)Broadcast  |
-|-------------------|: ----                  : |    ----            |
-|192.168.10.0       |    192.168.10.(1-14)     |     192.168.10.15  |
-|192.168.10.16      |    192.168.10.(17-30)    |     192.168.10.31  |
-|192.168.10.32      |    192.168.10.(33-46)    |     192.168.10.47  |
-|192.168.10.48      |    192.168.10.(49-62)    |     192.168.10.63  |
-|192.168.10.64      |    192.168.10.(65-78)    |     192.168.10.79  |
-|...                |    ...                   |    ...             |
+|(N)Network      | (H)Hosts               | (B)Broadcast     |
+|----------------|------------------------|------------------|
+|192.168.10.0    | 192.168.10.(1-14)      | 192.168.10.15    |
+|192.168.10.16   | 192.168.10.(17-30)     | 192.168.10.31    |
+|192.168.10.32   | 192.168.10.(33-46)     | 192.168.10.47    |
+|192.168.10.48   | 192.168.10.(49-62)     | 192.168.10.63    |
+|192.168.10.64   | 192.168.10.(65-78)     | 192.168.10.79    |
+|...             | ...                    | ...              |
+
 
 
