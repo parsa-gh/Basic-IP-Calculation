@@ -12,14 +12,14 @@ NetworkID(NetID) === > each subnet splits some ip addresses into some groups, ve
 IP Classes :
 
 -----------------
-[Class : Range/SM]             [Default SM]          [How range prove]      [IP Pool amount]
-----------------------------------------------------------------------------------------------
-A : (1 - 126).0.0.0/8        -- 255.0.0.0 --      [0][X][X][X][X][X][X][X]  -- 16,777,214 IPs
-B : (128-191).0.0.0/16      -- 255.255.0.0 --     [1][0][X][X][X][X][X][X]  -- 65534 IPs
-C : (192-223).0.0.0/24      -- 255.255.255.0 --   [1][1][1][X][X][X][X][X]  -- 254 IPs
-D : (224-239).0.0.0         --  MultiCast --
-E : (240-255).0.0.0         --  MultiCast --
----------------------------------------------------------------------------------------------
+| [Class : Range/SM]       |   [Default SM]   |      [How range prove]   |   [IP Pool amount] |
+| -------------------------|------------------|--------------------------| ------------------ |
+| A : (1 - 126).0.0.0/8    |    255.0.0.0     | [0][X][X][X][X][X][X][X] | -- 16,777,214 IPs  |
+| B : (128-191).0.0.0/16   |   255.255.0.0    | [1][0][X][X][X][X][X][X] | -- 65534 IPs       |
+| C : (192-223).0.0.0/24   |   255.255.255.0  | [1][1][1][X][X][X][X][X] | -- 254 IPs         |
+| D : (224-239).0.0.0      |    MultiCast     |                          |                    |
+| E : (240-255).0.0.0      |    MultiCast     |                          |                    |
+
 
 Multicast IPs cannot be set on Normal NICs.
 Multicast IPs commonly used for service/platforms that require higher speed, bandwith, and performance
