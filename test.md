@@ -1,11 +1,11 @@
+IPs are used for communication between two or more nodes in a local network (LAN/MAN/CAN) or world wide network (WAN)
+
 IPv4 contains 32 bits per address.
 
-it splits decimal : 
-+ Ex ) 221.67.143.47 ====> 11011101 // 01000011 // 10001111 // 00101111  
-
-
-IPs uses for communication between two or more nodes in a local network (LAN/MAN/CAN) or world wide network (WAN)
 - `IP = NetID + HostID` (both are explained below)
+
+it splits into decimal : 
++ Ex ) 221.67.143.47 ====> 11011101 // 01000011 // 10001111 // 00101111  
 
 
 Subnet mask = contains 32 bits per each  |  it splits networks whenever is needed | in SP envoirments is also used for IP renting to clinets/partners 
@@ -18,9 +18,9 @@ In subnets {8,16,24,32} whenever decimal subnet mask shows "255" it's NetID, and
 IP Classes :
 | Class : Range/SM         |    Default SM    |     Binary algorithm     |   IP Pool amount   |
 | -------------------------|------------------|--------------------------| ------------------ |
-| A : (1 - 126).0.0.0/8    |    255.0.0.0     | [0][X][X][X][X][X][X][X] | -- 16,777,214 IPs  |
-| B : (128-191).0.0.0/16   |   255.255.0.0    | [1][0][X][X][X][X][X][X] | -- 65534 IPs       |
-| C : (192-223).0.0.0/24   |   255.255.255.0  | [1][1][1][X][X][X][X][X] | -- 254 IPs         |
+| A : (1 - 126).0.0.0/8    |    255.0.0.0     | [0][X][X][X][X][X][X][X] |    16,777,214 IPs  |
+| B : (128-191).0.0.0/16   |   255.255.0.0    | [1][0][X][X][X][X][X][X] |    65534 IPs       |
+| C : (192-223).0.0.0/24   |   255.255.255.0  | [1][1][1][X][X][X][X][X] |    254 IPs         |
 | D : (224-239).0.0.0      |    MultiCast     |                          |                    |
 | E : (240-255).0.0.0      |    MultiCast     |                          |                    |
 
@@ -28,7 +28,7 @@ IP Classes :
 - Multicast IPs cannot be set on Normal NICs.
 - Multicast IPs commonly used for service/platforms that require higher speed, bandwith, and performance
 ----
-#### Creating isolated networks with subneting 
+### Creating isolated networks with subneting 
 take 192.168.10.0/24 as an example -- 10 isolated networks are asked
 Tutorial : 
 1. write down decimal form of SM ==> 255.255.255.0
@@ -45,6 +45,9 @@ Tutorial :
 
 ===> Final Ansewr : 192.168.10.0/28 --- now it has 10 seperate networks.
 
+amount of IPs per each seperated networks will be found from very last bit of subnet `(11110000)` --> last ONE from left --OR-- first ONE from right
+
+in our example ==> 11110000 == 16 address per network
 
 |(N)Network      | (H)Hosts               | (B)Broadcast     |
 |----------------|------------------------|------------------|
@@ -55,5 +58,42 @@ Tutorial :
 |192.168.10.64   | 192.168.10.(65-78)     | 192.168.10.79    |
 |...             | ...                    | ...              |
 
+----
+### Creating seperated networks based by host number
+
+take 192.168.10.0/24 as an example, we need 25 hosts per each networks.
+Tutorial : 
+
+1. find out amount of binary digits for asked hosts `11001` which equals to `5`
+
+2. convert subnet mask to binary, as amount as step1, leave ZEROS from right side of HostID : `255.255.255.0 ==> 11111111.11111111.11111111.00000000 ==> 11111111.11111111.11111111.11100000`
+
+3. all other steps are as same as finding seperated networks.
+----
+### creating seperated networks with both conditions : host, network
+
+--]-[R1]--[R2]--[
+
+     |    |
+     
+      ---
+      
+       |
+       
+      [R3]
+      
+       |
+
+R1 askes for 50 hosts - R2 asks for 100 hosts -- R3 asks for 10 hosts
+
+(Obviesly we have 3 networks)
+
++ Final data : 3 seperated networks with multiple options for hosts.
+
+Tutorial : 
+
+1. among all networks, detect that network which asks for the most hosts
+2. execute method2 `Creating seperated networks based by host number`
+3. do this per every network.
 
 
